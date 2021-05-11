@@ -43,6 +43,20 @@ p {
   font-size: 0.85rem;
 }
 
+.action-button {
+  padding: 1rem 2rem;
+  height: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 45px;
+  background-color: var(--moderate-cyan);
+  color: white;
+}
+
+.action-button:hover {
+  background-color: var(--dark-cyan);
+}
+
 .divider-line {
   height: 1px;
   width: 30%;
@@ -109,6 +123,14 @@ body {
   height: 15rem;
 }
 
+@media (min-width: 36em) {
+  .main-header {
+    background-image: url("../images/image-hero-desktop.jpg");
+    background-position: top;
+    height: 30rem;
+  }
+}
+
 .nav__inner {
   position: relative;
   display: -webkit-box;
@@ -118,14 +140,9 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 2em 0;
-}
-
-@media (min-width: 36em) {
-  .nav__inner {
-    /* & > * {
-      //width: 100%;
-    } */
-  }
+  /* @media (min-width: 36em) {
+    
+  } */
 }
 
 .brand-logo {
@@ -173,6 +190,12 @@ body {
   padding: 1.5rem;
   font-size: 1rem;
   font-weight: bold;
+  color: var(--black);
+  border-bottom: whitesmoke 1px solid;
+}
+
+.nav__link:hover, .nav__link:focus-visible {
+  color: var(--moderate-cyan);
 }
 
 .nav__link:nth-last-child(1) {
@@ -254,9 +277,6 @@ main {
   padding-top: 3rem;
   margin-bottom: 2rem;
   text-align: center;
-  /* & > * {
-    padding: 1.5rem 0;
-  } */
 }
 
 .product-header h3,
@@ -276,20 +296,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.action-button {
-  padding: 1rem 2rem;
-  height: inherit;
-  font-weight: bold;
-  border: none;
-  border-radius: 45px;
-  background-color: var(--moderate-cyan);
-  color: white;
-}
-
-.action-button:hover {
-  background-color: var(--dark-cyan);
 }
 
 .back-project-button {
@@ -422,7 +428,7 @@ progress::-moz-progress-bar {
 }
 
 .about-product .small-heading {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .variant {
@@ -573,24 +579,34 @@ input[type="radio"] {
   height: 1.25rem;
 }
 
-.select-pledge-field {
+.select-pledge-product {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: minmax(1rem, auto) 3fr;
       grid-template-columns: minmax(1rem, auto) 3fr;
   -ms-grid-rows: (minmax(20px, auto))[4];
       grid-template-rows: repeat(4, minmax(20px, auto));
+  cursor: pointer;
 }
 
-.select-pledge-field .variant-title {
-  padding-bottom: 0.5rem;
+.select-pledge-product .variant-title {
+  padding: 0.5rem 0;
+  padding-top: 0;
+  font-size: 1.25rem;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
 }
 
-.select-pledge-field .variant-pledge-min {
+.select-pledge-product .variant-title:hover, .select-pledge-product .variant-title:focus-visible {
   color: var(--moderate-cyan);
 }
 
-.select-pledge-field .title-min-pledge {
+.select-pledge-product .variant-pledge-min {
+  color: var(--moderate-cyan);
+}
+
+.select-pledge-product .title-min-pledge {
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 1;
@@ -602,9 +618,13 @@ input[type="radio"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding-top: 0;
 }
 
-.select-pledge-field .variant-desc {
+.select-pledge-product .variant-desc {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
@@ -613,43 +633,52 @@ input[type="radio"] {
   padding: 1rem 0;
 }
 
-.select-pledge-field .variant-qty {
+.select-pledge-product .variant-qty {
   -ms-grid-row: 4;
   grid-row: 4;
 }
 
 @media (min-width: 36em) {
-  .select-pledge-field {
+  .select-pledge-product {
     -ms-grid-columns: minmax(1rem, auto) minmax(5rem, 1fr) minmax(1rem, auto) minmax(1rem, auto);
         grid-template-columns: minmax(1rem, auto) minmax(5rem, 1fr) minmax(1rem, auto) minmax(1rem, auto);
     -ms-grid-rows: (minmax(1rem, auto))[2];
         grid-template-rows: repeat(2, minmax(1rem, auto));
-    gap: 1rem;
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
   }
-  .select-pledge-field .custom-radio-button {
+  .select-pledge-product .custom-radio-button {
     -ms-grid-column: 1;
     grid-column: 1;
     -ms-grid-row: 1;
     grid-row: 1;
   }
-  .select-pledge-field .variant-title {
+  .select-pledge-product .variant-title {
     -ms-grid-column: 2;
     grid-column: 2;
     -ms-grid-row: 1;
     grid-row: 1;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    padding: 0;
   }
-  .select-pledge-field .variant-pledge-min {
+  .select-pledge-product .variant-pledge-min {
+    display: block;
     -ms-grid-column: 3;
     grid-column: 3;
     -ms-grid-row: 1;
     grid-row: 1;
-    color: var(--moderate-cyan);
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
-  .select-pledge-field .title-min-pledge {
+  .select-pledge-product .title-min-pledge {
     -ms-grid-column: 2;
     grid-column: 2;
     -ms-grid-row: 1;
     grid-row: 1;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -661,16 +690,20 @@ input[type="radio"] {
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 1rem;
+    padding: 0;
+    margin: 0;
   }
-  .select-pledge-field .variant-desc {
+  .select-pledge-product .variant-desc {
     -ms-grid-column: 2;
     -ms-grid-column-span: 3;
     grid-column: 2 / span 3;
     -ms-grid-row: 2;
     grid-row: 2;
-    padding: 1rem 0;
+    padding-bottom: 1.2rem;
+    padding-top: 0;
+    margin: 0;
   }
-  .select-pledge-field .variant-qty {
+  .select-pledge-product .variant-qty {
     -ms-grid-column-align: end;
         justify-self: end;
     -ms-grid-column: 4;
@@ -815,6 +848,10 @@ input[type="radio"] {
   }
 }
 
+.pledge-action .currency-input > input:focus + .currency-input {
+  border: 2px solid var(--moderate-cyan);
+}
+
 .pledge-action .action-button {
   padding: 1rem;
   font-size: 1rem;
@@ -827,9 +864,6 @@ input[type="radio"] {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    /* & > * {
-      //width: 100%;
-    } */
   }
 }
 

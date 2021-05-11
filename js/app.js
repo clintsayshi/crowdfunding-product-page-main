@@ -10,7 +10,12 @@ const complete__modalbtn = document.querySelector("#complete__modalbtn");
 
 mobile__menu.addEventListener("click", () => {
   menu__links.classList.toggle("navlinks__on");
-  console.log(mobile__menu);
+  modal__overlay.classList.toggle("navlinks__on");
+  if (menu__links.classList.contains("navlinks__on")) {
+    mobile__menu.firstElementChild.src = "./images/icon-close-menu.svg";
+  } else {
+    mobile__menu.firstElementChild.src = "./images/icon-hamburger.svg";
+  }
 });
 
 back__project.addEventListener("click", () => {

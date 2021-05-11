@@ -12,7 +12,6 @@
   // Primary
   --moderate-cyan: hsl(176, 50%, 47%);
   --dark-cyan: hsl(176, 72%, 28%);
-  //--size: 1rem;
   // Neutral
   --black: hsl(0, 0%, 0%);
   --dark-gray: hsl(0, 0%, 48%);
@@ -49,20 +48,23 @@ body {
   background-size: cover;
   max-height: 20rem;
   height: 15rem;
+
+  @media (min-width: 36em) {
+    background-image: url("../images/image-hero-desktop.jpg");
+    background-position: top;
+    height: 30rem;
+  }
 }
 
 .nav__inner {
   position: relative;
   display: flex;
   justify-content: space-between;
-  //align-items: flex-start;
   padding: 2em 0;
 
-  @media (min-width: 36em) {
-    /* & > * {
-      //width: 100%;
-    } */
-  }
+  /* @media (min-width: 36em) {
+    
+  } */
 }
 
 .brand-logo {
@@ -85,7 +87,6 @@ body {
     display: block;
     background-color: transparent;
     top: 0;
-    //border: 1px dotted blue;
     justify-self: flex-end;
   }
 }
@@ -100,9 +101,15 @@ body {
 
 .nav__link {
   padding: 1.5rem;
-  //border-bottom: 1px dotted blue;
   font-size: 1rem;
   font-weight: bold;
+  color: var(--black);
+  border-bottom: whitesmoke 1px solid;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--moderate-cyan);
+  }
 
   &:nth-last-child(1) {
     border-bottom: none;
@@ -172,12 +179,7 @@ main {
   padding: 2rem;
   padding-top: 3rem;
   margin-bottom: 2rem;
-
   text-align: center;
-
-  /* & > * {
-    padding: 1.5rem 0;
-  } */
 
   h3,
   p {
@@ -191,20 +193,6 @@ main {
   padding: 1rem 0;
   height: 3.5rem;
   align-items: center;
-}
-
-.action-button {
-  padding: 1rem 2rem;
-  height: inherit;
-  font-weight: bold;
-  border: none;
-  border-radius: 45px;
-  background-color: var(--moderate-cyan);
-  color: white;
-
-  &:hover {
-    background-color: var(--dark-cyan);
-  }
 }
 
 .back-project-button {
@@ -226,7 +214,6 @@ main {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  //border: 1px dotted blue;
 
   .svg-alternate {
     height: inherit;
@@ -278,8 +265,6 @@ main {
 */
 
 .product-stats {
-  //border: 1px dotted blue;
-
   @media (min-width: 36em) {
     display: flex;
     align-items: center;
@@ -289,8 +274,6 @@ main {
 
 .product-stat {
   padding: 1rem 0;
-  //border: 1px dotted blue;
-
   padding-right: 2rem;
   padding-left: 2rem;
   &:nth-child(1) {
@@ -330,7 +313,7 @@ progress {
 .about-product {
   text-align: left;
   .small-heading {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -342,13 +325,10 @@ progress {
   .actions {
     height: fit-content;
     display: block;
-    //flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 0;
     padding-bottom: 0;
-
-    //border: 1px dotted blue;
   }
 
   @media (min-width: 36em) {
@@ -412,8 +392,6 @@ progress {
   max-width: 95%;
   width: 100%;
   z-index: 3;
-
-  //border: 1px dotted blue;
   border-radius: 10px;
 
   @media (min-width: 36em) {
@@ -453,13 +431,22 @@ input[type="radio"] {
   height: 1.25rem;
 }
 
-.select-pledge-field {
+.select-pledge-product {
   display: grid;
   grid-template-columns: minmax(1rem, auto) 3fr;
   grid-template-rows: repeat(4, minmax(20px, auto));
+  cursor: pointer;
 
   .variant-title {
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    padding-top: 0;
+    font-size: 1.25rem;
+    align-self: start;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--moderate-cyan);
+    }
   }
 
   .variant-pledge-min {
@@ -471,6 +458,8 @@ input[type="radio"] {
     grid-row: 1;
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    padding-top: 0;
   }
 
   .variant-desc {
@@ -488,7 +477,7 @@ input[type="radio"] {
       minmax(1rem, auto) minmax(5rem, 1fr) minmax(1rem, auto)
       minmax(1rem, auto);
     grid-template-rows: repeat(2, minmax(1rem, auto));
-    gap: 1rem;
+    column-gap: 1rem;
 
     .custom-radio-button {
       grid-column: 1;
@@ -497,28 +486,35 @@ input[type="radio"] {
     .variant-title {
       grid-column: 2;
       grid-row: 1;
+      align-self: flex-start;
+      padding: 0;
     }
 
     .variant-pledge-min {
+      display: block;
       grid-column: 3;
       grid-row: 1;
-      color: var(--moderate-cyan);
-      //border: 1px dotted blue;
+      align-self: flex-start;
     }
 
     .title-min-pledge {
       grid-column: 2;
       grid-row: 1;
+      height: fit-content;
       display: flex;
       align-items: flex-start;
       flex-direction: row;
       gap: 1rem;
+      padding: 0;
+      margin: 0;
     }
 
     .variant-desc {
       grid-column: 2 / span 3;
       grid-row: 2;
-      padding: 1rem 0;
+      padding-bottom: 1.2rem;
+      padding-top: 0;
+      margin: 0;
     }
 
     .variant-qty {
@@ -539,14 +535,12 @@ input[type="radio"] {
   position: relative;
 
   &::after {
-    //content: "";
     position: absolute;
     height: 0.75rem;
     width: 0.75rem;
     border-radius: 50%;
     background-color: var(--moderate-cyan);
     z-index: 3;
-    //border: 1px dotted blue;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -574,9 +568,8 @@ input[type="radio"] {
 /* When pledge gets selected */
 .pledge-action {
   display: none;
-  //border: 1px dotted blue;
-  //border-top: 2px solid black;
   margin-top: 1.5rem;
+
   label {
     display: block;
     width: max-content;
@@ -590,7 +583,6 @@ input[type="radio"] {
   }
 
   div {
-    //border: 1px dotted blue;
     height: fit-content;
     display: flex;
     align-items: center;
@@ -610,7 +602,6 @@ input[type="radio"] {
 
   .currency-input {
     padding: 0 0.75rem;
-    //border: none;
     border: 2px solid rgb(192, 192, 192);
     display: flex;
     align-items: center;
@@ -623,7 +614,6 @@ input[type="radio"] {
       font-family: roboto;
       font-weight: bold;
       font-size: 1rem;
-      //border: 1px dotted blue;
     }
 
     input {
@@ -643,6 +633,10 @@ input[type="radio"] {
     }
   }
 
+  .currency-input > input:focus + .currency-input {
+    border: 2px solid var(--moderate-cyan);
+  }
+
   .action-button {
     padding: 1rem;
     font-size: 1rem;
@@ -652,10 +646,6 @@ input[type="radio"] {
   @media (min-width: 36em) {
     display: none;
     align-items: center;
-
-    /* & > * {
-      //width: 100%;
-    } */
   }
 }
 

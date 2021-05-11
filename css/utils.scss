@@ -26,6 +26,21 @@ p {
   font-size: 0.85rem;
 }
 
+.action-button {
+  padding: 1rem 2rem;
+  height: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 45px;
+  //font-size: 1rem;
+  background-color: var(--moderate-cyan);
+  color: white;
+
+  &:hover {
+    background-color: var(--dark-cyan);
+  }
+}
+
 .divider-line {
   height: 1px;
   width: 30%;
