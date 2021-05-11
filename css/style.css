@@ -823,9 +823,7 @@ input[type="radio"] {
 
 @media (min-width: 36em) {
   .pledge-action {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -841,6 +839,14 @@ input[type="radio"] {
 
 .pledge__actionon {
   display: block;
+}
+
+@media (min-width: 36em) {
+  .pledge__actionon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 /* 

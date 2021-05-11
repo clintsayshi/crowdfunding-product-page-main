@@ -650,7 +650,7 @@ input[type="radio"] {
   }
 
   @media (min-width: 36em) {
-    display: flex;
+    display: none;
     align-items: center;
 
     /* & > * {
@@ -664,6 +664,9 @@ input[type="radio"] {
 }
 .pledge__actionon {
   display: block;
+  @media (min-width: 36em) {
+    display: flex;
+  }
 }
 
 /* 
